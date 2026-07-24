@@ -3,6 +3,10 @@ FROM node:20-alpine AS build
 
 WORKDIR /app
 
+# Pass VITE_API_BASE as build argument from environment/.env
+ARG VITE_API_BASE
+ENV VITE_API_BASE=$VITE_API_BASE
+
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
