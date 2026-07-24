@@ -1,0 +1,110 @@
+/* ========================================
+   Section 4: How It Works (3 Phases)
+   ======================================== */
+.sec-hiw-section {
+  width: 100%;
+  background-color: #F8FAFC;
+  padding: 6rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.sec-hiw-container {
+  max-width: 1100px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sec-hiw-headline {
+  font-size: 52px;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.03em;
+  margin: 0 0 4rem 0;
+}
+
+.sec-hiw-phases {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  width: 100%;
+  position: relative;
+}
+
+.sec-hiw-phase-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 24px;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sec-hiw-phase-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+}
+
+.sec-hiw-number-badge {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
+  color: #FFFFFF;
+  font-size: 28px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
+}
+
+.sec-hiw-phase-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.02em;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+}
+
+.sec-hiw-phase-desc {
+  font-size: 16px;
+  color: #475569;
+  line-height: 1.65;
+  margin: 0 0 2rem 0;
+  flex-grow: 1;
+}
+
+.sec-hiw-phase-timeline {
+  font-size: 14px;
+  font-weight: 700;
+  color: #4F46E5;
+  background: rgba(99, 102, 241, 0.08);
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+}
+
+@media (max-width: 1024px) {
+  .sec-hiw-phases {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .sec-hiw-section { padding: 4rem 1.5rem; }
+  .sec-hiw-headline { font-size: 36px; }
+}

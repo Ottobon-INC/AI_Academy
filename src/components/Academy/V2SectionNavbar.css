@@ -1,0 +1,105 @@
+/* ========================================
+   V2 Navbar — Warm Off-White Theme
+   ======================================== */
+.v2-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.25rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  box-sizing: border-box;
+  background: rgba(248, 245, 240, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(26, 26, 46, 0.06);
+  transition: box-shadow 0.3s ease;
+}
+
+.v2-navbar:hover {
+  box-shadow: 0 4px 24px rgba(26, 26, 46, 0.06);
+}
+
+/* Logo */
+.v2-nav-logo {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1A1A2E;
+  text-decoration: none;
+  letter-spacing: -0.04em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.v2-nav-logo::before {
+  content: '⚡';
+  font-size: 18px;
+}
+
+/* Nav links */
+.v2-nav-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.v2-nav-links a {
+  color: #6B6560;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+  position: relative;
+  white-space: nowrap;
+}
+
+.v2-nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #C9A84C;
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
+  border-radius: 2px;
+}
+
+.v2-nav-links a:hover {
+  color: #1A1A2E;
+}
+
+.v2-nav-links a:hover::after {
+  transform: scaleX(1);
+}
+
+/* CTA button */
+.v2-nav-cta {
+  background: #1A1A2E;
+  color: #FAF7F2;
+  padding: 0.7rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  letter-spacing: -0.01em;
+}
+
+.v2-nav-cta:hover {
+  background: #C9A84C;
+  color: #1A1A2E;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(201, 168, 76, 0.3);
+}
+
+@media (max-width: 768px) {
+  .v2-nav-links { display: none; }
+  .v2-navbar { padding: 1.25rem 1.5rem; }
+}

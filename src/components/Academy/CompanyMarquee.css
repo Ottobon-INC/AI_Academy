@@ -1,0 +1,60 @@
+.company-marquee-wrapper {
+  width: 100%;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+  opacity: 0;
+  animation: cinematicFadeUp 1.2s cubic-bezier(.22,.61,.36,1) forwards;
+  animation-delay: 0.6s;
+}
+
+.marquee-label {
+  font-size: 13px;
+  color: #A09A93; /* Brighter label */
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.marquee-track {
+  width: 100vw; /* Force absolute edge to edge */
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-content {
+  display: flex;
+  width: max-content;
+  animation: scrollMarquee 40s linear infinite;
+}
+
+.marquee-content:hover {
+  animation-play-state: paused;
+}
+
+.marquee-content span {
+  margin: 0 3rem;
+  font-size: 28px;
+  font-weight: 700;
+  color: #A09A93; /* Much brighter and more visible */
+  letter-spacing: -0.03em;
+  transition: color 0.3s ease;
+  cursor: default;
+}
+
+.marquee-content span:hover {
+  color: #FDFBF7; /* Pop to full white on hover */
+}
+
+@keyframes scrollMarquee {
+  to {
+    transform: translateX(-50%);
+  }
+}

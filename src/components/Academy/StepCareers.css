@@ -1,0 +1,117 @@
+.careers-section {
+  width: 100%;
+  background-color: #1C1614; /* Deep Espresso */
+  padding: 8rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.careers-container {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.careers-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.careers-header h2 {
+  font-size: 48px;
+  font-weight: 700;
+  color: #FDFBF7;
+  letter-spacing: -0.03em;
+  margin: 0 0 1rem 0;
+}
+
+.careers-header p {
+  font-size: 20px;
+  color: #D6CFC7;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.roles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  width: 100%;
+}
+
+.role-card {
+  background: #2A221E;
+  border: 1px solid #362D28;
+  border-radius: 16px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.role-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+  border-color: #C86A4C;
+}
+
+.role-icon {
+  font-size: 32px;
+  margin-bottom: 1rem;
+}
+
+.role-salary {
+  display: inline-block;
+  background: rgba(16, 185, 129, 0.1);
+  color: #10B981;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
+  align-self: flex-start;
+}
+
+.role-card h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #FDFBF7;
+  margin: 0 0 1rem 0;
+  letter-spacing: -0.02em;
+}
+
+.role-card p {
+  font-size: 16px;
+  color: #D6CFC7;
+  line-height: 1.6;
+  margin: 0 0 2rem 0;
+  flex-grow: 1;
+}
+
+.role-learn-more {
+  background: none;
+  border: none;
+  color: #C86A4C;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  align-self: flex-start;
+  transition: color 0.2s ease;
+}
+
+.role-learn-more:hover {
+  color: #E27F5F;
+}
+
+@media (max-width: 768px) {
+  .roles-grid {
+    grid-template-columns: 1fr;
+  }
+}

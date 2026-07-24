@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+.v2-landing {
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  color: #1E293B;
+  overflow-x: hidden;
+}
+
+/* Base resets */
+.v2-landing * {
+  box-sizing: border-box;
+}
+
+.v2-landing h1, .v2-landing h2, .v2-landing h3, .v2-landing h4, .v2-landing p {
+  margin-top: 0;
+}

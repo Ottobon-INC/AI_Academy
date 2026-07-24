@@ -1,0 +1,498 @@
+/* AssessmentSummary.css - Premium Bento Box UI */
+
+.report-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-primary, 'Inter', sans-serif);
+}
+
+.report-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2rem;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem;
+  border-radius: 12px;
+  background: var(--surface-color, #FFFFFF);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+
+.btn-icon:hover {
+  transform: translateY(-2px);
+  color: var(--accent-color, #E95A38);
+  border-color: var(--accent-color, #E95A38);
+  box-shadow: 0 6px 15px rgba(233, 90, 56, 0.15);
+}
+
+.report-document {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* --- BENTO GRID ARCHITECTURE --- */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: minmax(180px, auto);
+  gap: 1.5rem;
+}
+
+.bento-card {
+  background: var(--surface-color, #ffffff);
+  border-radius: 24px;
+  border: 1px solid var(--border-color, #EBEBEB);
+  padding: 2rem;
+  box-shadow: 0 4px 24px rgba(35, 71, 90, 0.04);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.bento-card:hover {
+  box-shadow: 0 10px 40px rgba(35, 71, 90, 0.08);
+  transform: translateY(-2px);
+}
+
+.bento-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.bento-card:hover::before {
+  background: var(--accent-color, #E95A38);
+}
+
+/* Span Classes for Grid */
+.span-12 { grid-column: span 12; }
+.span-8 { grid-column: span 8; }
+.span-6 { grid-column: span 6; }
+.span-4 { grid-column: span 4; }
+.span-3 { grid-column: span 3; }
+
+@media (max-width: 1024px) {
+  .span-4, .span-8, .span-6 { grid-column: span 12; }
+}
+
+/* Card Header */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.card-title {
+  font-family: var(--font-heading, 'DM Sans', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-title-icon {
+  color: var(--accent-color, #E95A38);
+  background: rgba(233, 90, 56, 0.1);
+  padding: 6px;
+  border-radius: 8px;
+}
+
+/* --- SPECIFIC WIDGETS --- */
+
+/* Hero Score Widget */
+.hero-score-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #23475A 0%, #152B36 100%);
+  color: white;
+  border: none;
+}
+
+.hero-score-card:hover::before {
+  background: rgba(255,255,255,0.2);
+}
+
+.hero-info h1 {
+  font-family: var(--font-heading, 'DM Sans', sans-serif);
+  font-size: 2.5rem;
+  margin: 0 0 0.5rem 0;
+  color: #FFFFFF;
+}
+
+.hero-info p {
+  color: #A0B3C1;
+  font-size: 1.1rem;
+  margin: 0 0 1.5rem 0;
+}
+
+.maturity-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #E95A38 0%, #D94A2D 100%);
+  padding: 0.6rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.circular-score {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: conic-gradient(#E95A38 var(--score), rgba(255,255,255,0.1) 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circular-score::before {
+  content: '';
+  position: absolute;
+  width: 116px;
+  height: 116px;
+  background: #1C3847;
+  border-radius: 50%;
+}
+
+.circular-score-val {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: white;
+}
+
+/* Profile List */
+.profile-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.profile-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px dashed var(--border-color);
+}
+
+.profile-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.profile-label {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.profile-value {
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: right;
+  max-width: 60%;
+}
+
+/* Transition Goal */
+.transition-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  background: rgba(233, 90, 56, 0.03);
+  border-radius: 16px;
+  border: 1px solid rgba(233, 90, 56, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.transition-role {
+  text-align: center;
+  flex: 1;
+}
+
+.transition-role span {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.transition-role h4 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+}
+
+.transition-role.highlight h4 {
+  color: var(--accent-color);
+}
+
+.transition-arrow {
+  color: var(--accent-color);
+  opacity: 0.5;
+  animation: pulseArrow 2s infinite;
+}
+
+@keyframes pulseArrow {
+  0% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.3); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 0.3; }
+}
+
+.transition-meta {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.meta-item {
+  text-align: center;
+}
+
+.meta-item span {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.meta-item strong {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+/* Skill Gaps */
+.skill-gap-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  flex: 1;
+  justify-content: center;
+}
+
+.skill-gap-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.skill-gap-track {
+  height: 8px;
+  background: var(--bg-secondary);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-gap-target {
+  position: absolute;
+  top: 0; left: 0; height: 100%;
+  background: rgba(233, 90, 56, 0.2);
+  border-radius: 4px;
+}
+
+.skill-gap-current {
+  position: absolute;
+  top: 0; left: 0; height: 100%;
+  background: var(--accent-color);
+  border-radius: 4px;
+}
+
+/* Tags */
+.tags-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.bento-tag {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.tag-strength {
+  background: rgba(34, 197, 94, 0.08);
+  color: #166534;
+  border-color: rgba(34, 197, 94, 0.2);
+}
+
+.tag-improvement {
+  background: rgba(239, 68, 68, 0.08);
+  color: #991b1b;
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+/* Scenario Accordions */
+.scenario-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.scenario-item {
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  background: var(--surface-color);
+  transition: all 0.2s ease;
+}
+
+.scenario-item:hover {
+  border-color: var(--accent-secondary);
+}
+
+.scenario-q {
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.scenario-a {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--border-color);
+}
+
+.scenario-eval {
+  background: rgba(233, 90, 56, 0.04);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px dashed rgba(233, 90, 56, 0.3);
+  font-size: 0.9rem;
+}
+
+.scenario-eval ul {
+  padding-left: 1.2rem;
+  margin: 0.5rem 0 0 0;
+  color: var(--text-secondary);
+}
+
+/* Roadmap List inside Card */
+.roadmap-bento-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.roadmap-bento-item {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1rem;
+  border-radius: 12px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.roadmap-bento-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(233, 90, 56, 0.2);
+}
+
+.roadmap-bento-content h4 {
+  margin: 0 0 0.3rem 0;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+}
+
+.roadmap-bento-content p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Ensure printing prints everything legibly */
+@media print {
+  .report-actions, .no-print {
+    display: none !important;
+  }
+  .bento-grid {
+    display: block !important;
+  }
+  .bento-card {
+    page-break-inside: avoid;
+    margin-bottom: 2rem;
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+  .hero-score-card {
+    background: #fff !important;
+    color: #000 !important;
+    border: 2px solid #000 !important;
+  }
+  .hero-info h1, .hero-info p, .circular-score-val {
+    color: #000 !important;
+  }
+  .circular-score {
+    background: none !important;
+    border: 4px solid #000;
+  }
+  .circular-score::before {
+    display: none;
+  }
+}

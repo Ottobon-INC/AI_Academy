@@ -1,0 +1,94 @@
+/* ========================================
+   Section 11: Final Proof Points
+   ======================================== */
+.sec-pp-section {
+  width: 100%;
+  background-color: #FFFFFF;
+  padding: 6rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.sec-pp-container {
+  max-width: 1000px;
+  width: 100%;
+  text-align: center;
+}
+
+.sec-pp-headline {
+  font-size: 52px;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.03em;
+  margin: 0 0 4rem 0;
+}
+
+.sec-pp-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  width: 100%;
+}
+
+.sec-pp-card {
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.02);
+  transition: transform 0.3s ease;
+}
+
+.sec-pp-card:hover {
+  transform: translateY(-6px);
+}
+
+.sec-pp-card.blue {
+  background: #EFF6FF;
+  border: 1px solid #BFDBFE;
+}
+
+.sec-pp-card.green {
+  background: #ECFDF5;
+  border: 1px solid #A7F3D0;
+}
+
+.sec-pp-card.orange {
+  background: #FFF7ED;
+  border: 1px solid #FFEDD5;
+}
+
+.sec-pp-card.purple {
+  background: #F3E8FF;
+  border: 1px solid #E9D5FF;
+}
+
+.sec-pp-number {
+  font-size: 64px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.sec-pp-card.blue .sec-pp-number { color: #2563EB; }
+.sec-pp-card.green .sec-pp-number { color: #059669; }
+.sec-pp-card.orange .sec-pp-number { color: #EA580C; }
+.sec-pp-card.purple .sec-pp-number { color: #7C3AED; }
+
+.sec-pp-label {
+  font-size: 17px;
+  font-weight: 700;
+  color: #334155;
+}
+
+@media (max-width: 768px) {
+  .sec-pp-section { padding: 4rem 1.5rem; }
+  .sec-pp-headline { font-size: 36px; }
+  .sec-pp-grid { grid-template-columns: 1fr; }
+  .sec-pp-number { font-size: 48px; }
+}

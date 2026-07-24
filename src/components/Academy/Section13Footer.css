@@ -1,0 +1,144 @@
+/* ========================================
+   Section 13: Footer
+   ======================================== */
+.sec-foot-section {
+  width: 100%;
+  background-color: #0F172A;
+  color: #94A3B8;
+  padding: 5rem 2rem 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.sec-foot-container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.sec-foot-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1.5fr;
+  gap: 2.5rem;
+  width: 100%;
+}
+
+.sec-foot-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sec-foot-logo {
+  font-size: 22px;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -0.03em;
+}
+
+.sec-foot-desc {
+  font-size: 14px;
+  color: #64748B;
+  margin: 0;
+}
+
+.sec-foot-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sec-foot-title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #CBD5E1;
+}
+
+.sec-foot-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.sec-foot-links a {
+  font-size: 14px;
+  color: #94A3B8;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.sec-foot-links a:hover {
+  color: #FFFFFF;
+}
+
+.sec-foot-nl {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sec-foot-nl-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.sec-foot-nl-input {
+  background: #1E293B;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 0.65rem 1rem;
+  font-size: 14px;
+  color: #FFFFFF;
+  outline: none;
+  width: 100%;
+}
+
+.sec-foot-nl-btn {
+  background: #4F46E5;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 0.65rem 1.25rem;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.sec-foot-nl-btn:hover {
+  background: #6366F1;
+}
+
+.sec-foot-bottom {
+  border-top: 1px solid #1E293B;
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: #64748B;
+}
+
+@media (max-width: 1024px) {
+  .sec-foot-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .sec-foot-grid {
+    grid-template-columns: 1fr;
+  }
+  .sec-foot-bottom {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}

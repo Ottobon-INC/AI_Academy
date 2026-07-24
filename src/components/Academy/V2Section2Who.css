@@ -1,0 +1,215 @@
+/* ========================================
+   V2 Section 2: Who This Is For — Warm Off-White
+   Uses class: v2-who-section-dark (existing component class)
+   ======================================== */
+.v2-who-section-dark {
+  width: 100%;
+  background-color: #FFFFFF;
+  padding: 6rem 2rem 3rem;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Reuse glow elements */
+.v2-who-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.glow-left {
+  top: -100px;
+  left: -150px;
+  background: rgba(201, 168, 76, 0.07);
+}
+
+.glow-right {
+  bottom: -100px;
+  right: -150px;
+  background: rgba(26, 26, 46, 0.04);
+}
+
+.v2-who-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* HEADER */
+.v2-who-header { text-align: center; }
+
+.v2-who-eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #C9A84C;
+  margin: 0 0 1rem 0;
+  display: block;
+}
+
+.v2-who-headline {
+  font-size: 52px;
+  font-weight: 800;
+  color: #1A1A2E;
+  letter-spacing: -0.03em;
+  margin: 0 0 1rem 0;
+  line-height: 1.1;
+}
+
+.v2-who-subtitle {
+  font-size: 20px;
+  color: #A89E94;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* CARDS ROW */
+.v2-who-cards {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ---- FLIP CARD ---- */
+.v2-who-card {
+  width: 320px;
+  height: 320px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.v2-who-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.v2-who-card:hover .v2-who-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* FRONT */
+.v2-who-card-front,
+.v2-who-card-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 2rem;
+  backface-visibility: hidden;
+}
+
+.v2-who-card-front {
+  background: #FAF7F2;
+  border: 1px solid rgba(26, 26, 46, 0.07);
+  box-shadow: 0 4px 24px rgba(26, 26, 46, 0.06);
+  justify-content: space-between;
+}
+
+/* Icon */
+.v2-who-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  background: #FFFFFF;
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  box-shadow: 0 4px 16px rgba(201, 168, 76, 0.1);
+}
+
+.v2-who-icon { font-size: 28px; }
+
+.v2-who-card-front-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.v2-who-card-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1A1A2E;
+  margin: 0;
+  line-height: 1.25;
+  height: 50px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.v2-who-card-desc {
+  font-size: 14px;
+  color: #6B6560;
+  line-height: 1.5;
+  margin: 0;
+  height: 65px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.v2-who-card-action {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 14px;
+  font-weight: 700;
+  color: #C9A84C;
+  margin-top: 0.75rem;
+}
+
+.v2-who-card-action .arrow {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.v2-who-card:hover .v2-who-card-action .arrow {
+  transform: translateX(4px);
+}
+
+/* BACK */
+.v2-who-card-back {
+  background: #1A1A2E;
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  transform: rotateY(180deg);
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+  box-shadow: 0 20px 60px rgba(26, 26, 46, 0.3);
+}
+
+.v2-who-card-back .v2-who-card-title {
+  font-size: 20px;
+  color: #C9A84C;
+  font-weight: 700;
+}
+
+.v2-who-card-back .v2-who-card-desc {
+  font-size: 15px;
+  color: rgba(250, 247, 242, 0.75);
+  line-height: 1.65;
+}
+
+@media (max-width: 1024px) {
+  .v2-who-cards { flex-direction: column; align-items: center; }
+  .v2-who-headline { font-size: 40px; }
+}

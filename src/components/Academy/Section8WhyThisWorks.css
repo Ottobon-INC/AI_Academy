@@ -1,0 +1,128 @@
+/* ========================================
+   Section 8: Why This Works
+   ======================================== */
+.sec-wtw-section {
+  width: 100%;
+  background-color: #F8FAFC;
+  padding: 6rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.sec-wtw-container {
+  max-width: 1150px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.sec-wtw-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: left;
+}
+
+.sec-wtw-headline {
+  font-size: 52px;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.sec-wtw-sub {
+  font-size: 18px;
+  color: #64748B;
+  margin: 0;
+}
+
+.sec-wtw-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sec-wtw-bullets li {
+  font-size: 16.5px;
+  font-weight: 600;
+  color: #1E293B;
+  display: flex;
+  align-items: flex-center;
+  gap: 0.75rem;
+}
+
+.sec-wtw-bullets li span {
+  color: #4F46E5;
+  font-weight: 800;
+}
+
+.sec-wtw-closing {
+  background: #FFFFFF;
+  border-left: 3px solid #6366F1;
+  padding: 1.25rem 1.5rem;
+  border-radius: 0 12px 12px 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  font-size: 15.5px;
+  color: #334155;
+  line-height: 1.6;
+}
+
+/* Right Column Visual */
+.sec-wtw-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 40px rgba(15, 23, 42, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sec-wtw-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  align-self: flex-start;
+}
+
+.sec-wtw-card-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0;
+}
+
+.sec-wtw-card-desc {
+  font-size: 15px;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .sec-wtw-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .sec-wtw-section { padding: 4rem 1.5rem; }
+  .sec-wtw-headline { font-size: 36px; }
+}

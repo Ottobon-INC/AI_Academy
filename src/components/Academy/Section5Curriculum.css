@@ -1,0 +1,141 @@
+/* ========================================
+   Section 5: Learning Tracks / Curriculum
+   ======================================== */
+.sec-curr-section {
+  width: 100%;
+  background-color: #FFFFFF;
+  padding: 6rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.sec-curr-container {
+  max-width: 1200px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sec-curr-headline {
+  font-size: 52px;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.03em;
+  margin: 0 0 4rem 0;
+}
+
+.sec-curr-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  width: 100%;
+}
+
+.sec-curr-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sec-curr-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+}
+
+.sec-curr-card-header {
+  padding: 1.75rem;
+  color: #FFFFFF;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.sec-curr-card-header.warm {
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+}
+
+.sec-curr-card-header.blue {
+  background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
+}
+
+.sec-curr-card-header.purple {
+  background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
+}
+
+.sec-curr-card-body {
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex-grow: 1;
+}
+
+.sec-curr-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sec-curr-bullets li {
+  font-size: 15.5px;
+  color: #334155;
+  line-height: 1.5;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+
+.sec-curr-bullets li span {
+  color: #10B981;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.sec-curr-meta {
+  border-top: 1px solid #F1F5F9;
+  padding-top: 1.5rem;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sec-curr-timeline {
+  font-size: 14px;
+  color: #64748B;
+  font-weight: 600;
+}
+
+.sec-curr-outcome {
+  font-size: 15px;
+  font-weight: 800;
+  color: #0F172A;
+}
+
+@media (max-width: 1024px) {
+  .sec-curr-cards {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .sec-curr-section { padding: 4rem 1.5rem; }
+  .sec-curr-headline { font-size: 36px; }
+}

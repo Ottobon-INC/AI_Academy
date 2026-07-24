@@ -1,0 +1,67 @@
+/* ========================================
+   Section 12: Final CTA
+   ======================================== */
+.sec-cta-section {
+  width: 100%;
+  background: linear-gradient(135deg, #1E1B4B 0%, #312E81 50%, #4338CA 100%);
+  padding: 8rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.sec-cta-container {
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.sec-cta-headline {
+  font-size: 64px;
+  font-weight: 900;
+  color: #FFFFFF;
+  letter-spacing: -0.04em;
+  margin: 0 0 2.5rem 0;
+}
+
+.sec-cta-btn {
+  background: #FFFFFF;
+  color: #4F46E5;
+  font-size: 20px;
+  font-weight: 800;
+  padding: 1.25rem 3.5rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  min-height: 54px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+  transition: all 0.25s ease;
+  margin-bottom: 2rem;
+}
+
+.sec-cta-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.35);
+  background: #F8FAFC;
+}
+
+.sec-cta-sub {
+  font-size: 16px;
+  color: #C7D2FE;
+  line-height: 1.8;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .sec-cta-section { padding: 5rem 1.5rem; }
+  .sec-cta-headline { font-size: 42px; }
+  .sec-cta-btn { font-size: 18px; padding: 1rem 2.5rem; }
+}
