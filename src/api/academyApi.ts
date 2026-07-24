@@ -1,6 +1,6 @@
 import type { ChatMessage } from '../types/academy';
 
-const API_BASE = 'http://localhost:8000'; // Default backend url, can be updated via env later
+const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8000';
 
 const getCampaignId = () => {
   return typeof window !== 'undefined' ? sessionStorage.getItem('ottobon_campaign_id') || 'DIRECT' : 'DIRECT';
