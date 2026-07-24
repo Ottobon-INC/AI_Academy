@@ -36,7 +36,7 @@ const V2Section8FAQ: React.FC = () => {
   };
 
   return (
-    <section className="v2-faq-section" id="faq">
+    <section className="v2-faq-section" id="faq" itemScope itemType="https://schema.org/FAQPage">
       <div className="v2-faq-glow" />
 
       <div className="v2-faq-container">
@@ -51,17 +51,18 @@ const V2Section8FAQ: React.FC = () => {
             <div
               key={i}
               className={`v2-faq-item ${activeIndex === i ? 'active' : ''}`}
+              itemScope itemProp="mainEntity" itemType="https://schema.org/Question"
             >
               <button className="v2-faq-question" onClick={() => toggle(i)}>
-                <span>{faq.q}</span>
+                <span itemProp="name">{faq.q}</span>
                 <span className="v2-faq-chevron">
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </span>
               </button>
-              <div className="v2-faq-answer-wrapper">
-                <p className="v2-faq-answer">{faq.a}</p>
+              <div className="v2-faq-answer-wrapper" itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                <p className="v2-faq-answer" itemProp="text">{faq.a}</p>
               </div>
             </div>
           ))}
