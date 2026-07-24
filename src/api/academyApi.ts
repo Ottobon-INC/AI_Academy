@@ -513,5 +513,35 @@ export const academyApi = {
       throw new Error('Failed to trigger syllabus email');
     }
     return await response.json();
+  },
+
+  async getMentorAvailability(fromDate: string, toDate: string): Promise<{ slots: { start: string; end: string }[] }> {
+    const response = await fetch(`${API_BASE}/mentors/availability?from_date=${fromDate}&to_date=${toDate}`, {
+      headers: { 'x-academy-key': 'ottobon_academy_live_992' }
+    });
+    if (!response.ok) throw new Error('Failed to fetch availability');
+    return await response.json();
+  },
+
+  async bookMentorSession(payload: {
+    learner_name: string;
+    learner_email: string;
+    learner_notes?: string;
+    start_time: string;
+    session_id?: string;
+  }): Promise<{ booking_id: string; teams_meeting_url: string; start_time: string; message: string }> {
+    const response = await fetch(`${API_BASE}/mentors/book`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-academy-key': 'ottobon_academy_live_992'
+      },
+      body: JSON.stringify(payload)
+    });
+    if (!response.ok) {
+      const err = await response.json().catch(() => ({}));
+      throw new Error((err as any).detail || 'Failed to book session');
+    }
+    return await response.json();
   }
 };

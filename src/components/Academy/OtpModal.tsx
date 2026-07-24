@@ -36,6 +36,7 @@ export const OtpModal: React.FC<Props> = ({ onVerified, onCancel }) => {
     setError(null);
     try {
       const res = await academyApi.verifyOtp(email, otpCode);
+      sessionStorage.setItem('ottobon_verified_email', email);
       onVerified(res.session_id, res.final_report_data);
     } catch (err: any) {
       setError(err.message || 'Invalid OTP');

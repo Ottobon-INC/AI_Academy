@@ -24,6 +24,7 @@ export const AcademyAssessmentFlow: React.FC = () => {
   const [selectedTrackId, setSelectedTrackId] = useState<string | null>(null);
   const [skillGapData, setSkillGapData] = useState<SkillGapData | null>(null);
   const [isGenerating, setIsGenerating] = useState(false);
+  const [learnerEmail, setLearnerEmail] = useState<string | null>(null);
 
   // Sync state with URL so back button works and capture campaign ID
   useEffect(() => {
@@ -82,6 +83,9 @@ export const AcademyAssessmentFlow: React.FC = () => {
 
   const handleOtpVerified = (verifiedSessionId: string, finalReportData?: any) => {
     setSessionId(verifiedSessionId);
+    // Extract the email from OTP modal — stored in sessionStorage by OtpModal
+    const email = sessionStorage.getItem('ottobon_verified_email') || null;
+    setLearnerEmail(email);
     if (finalReportData) {
       setSummaryData(finalReportData);
       navigateToStep('summary');
@@ -165,7 +169,7 @@ export const AcademyAssessmentFlow: React.FC = () => {
         )
       )}
       {step === 'summary' && summaryData && <AIBlueprint data={summaryData} />}
-      {step === 'final-cta' && <FinalCTA />}
+      {step === 'final-cta' && <FinalCTA sessionId={sessionId} learnerEmail={learnerEmail} />}
     </div>
   );
 };

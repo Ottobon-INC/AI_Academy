@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MailCheck, Calendar, ArrowRight, ShieldCheck } from 'lucide-react';
+import { BookingModal } from './BookingModal';
 
-export const FinalCTA: React.FC = () => {
-  const handleBooking = () => {
-    // Placeholder for Calendly or other booking system
-    window.alert("This will open the Calendly booking widget!");
-  };
+interface Props {
+  sessionId?: string | null;
+  learnerEmail?: string | null;
+}
+
+export const FinalCTA: React.FC<Props> = ({ sessionId, learnerEmail }) => {
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <div className="w-full min-h-[90vh] bg-slate-950 font-['Inter'] opacity-0 animate-slide-up-fade overflow-hidden pb-20 flex flex-col items-center justify-center pt-24">
@@ -47,7 +50,7 @@ export const FinalCTA: React.FC = () => {
           </p>
 
           <button 
-            onClick={handleBooking}
+            onClick={() => setModalOpen(true)}
             className="w-full md:w-auto inline-flex items-center justify-center gap-3 bg-indigo-600 text-white font-bold text-lg py-4 px-8 rounded-xl hover:bg-indigo-500 transition-all shadow-[0_0_20px_rgba(99,102,241,0.4)] hover:shadow-[0_0_30px_rgba(99,102,241,0.6)] group"
           >
             Book your 1-on-1 session
@@ -61,6 +64,14 @@ export const FinalCTA: React.FC = () => {
         </div>
 
       </div>
+
+      {/* Booking Modal */}
+      <BookingModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        sessionId={sessionId}
+        learnerEmail={learnerEmail}
+      />
     </div>
   );
 };
