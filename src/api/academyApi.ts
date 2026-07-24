@@ -519,7 +519,10 @@ export const academyApi = {
     const response = await fetch(`${API_BASE}/mentors/availability?from_date=${fromDate}&to_date=${toDate}`, {
       headers: { 'x-academy-key': 'ottobon_academy_live_992' }
     });
-    if (!response.ok) throw new Error('Failed to fetch availability');
+    if (!response.ok) {
+      const err = await response.json().catch(() => ({}));
+      throw new Error((err as any).detail || 'Failed to fetch availability');
+    }
     return await response.json();
   },
 

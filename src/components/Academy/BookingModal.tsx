@@ -74,8 +74,8 @@ export const BookingModal: React.FC<Props> = ({ isOpen, onClose, sessionId, lear
       const data = await academyApi.getMentorAvailability(from, to);
       setSlots(data.slots);
       if (data.slots.length === 0) setError('No slots available this week. Try next week.');
-    } catch {
-      setError('Could not load available slots. Please try again.');
+    } catch (err: any) {
+      setError(err.message || 'Could not load available slots. Please try again.');
     } finally {
       setLoadingSlots(false);
     }
