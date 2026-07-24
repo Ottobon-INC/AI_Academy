@@ -229,7 +229,7 @@ export const academyApi = {
     });
   },
 
-  async triggerSyllabusEmail(_sessionId: string, _wizardData: any, _trackId: string): Promise<{ status: string }> {
+  async mockTriggerSyllabusEmail(_sessionId: string, _wizardData: any, _trackId: string): Promise<{ status: string }> {
     return new Promise(resolve => {
       // Simulate backend generating PDF and sending email
       setTimeout(() => {
