@@ -1,24 +1,26 @@
 /* ========================================
-   V2 Section Logos — Official Real SVG Logos
+   V2 Section Logos — Genuine Vector SVG Logos
    ======================================== */
 .v2-logos-section {
   width: 100%;
-  background-color: #F1ECE4;
-  padding: 1.75rem 0 2.25rem;
+  background-color: #F8F5F0;
+  padding: 2rem 0 2.5rem;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-top: 1px solid rgba(26, 26, 46, 0.06);
+  border-top: 1px solid rgba(26, 26, 46, 0.08);
+  border-bottom: 1px solid rgba(26, 26, 46, 0.08);
 }
 
 .v2-logos-header {
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: #A89E94;
-  margin-bottom: 1.5rem;
+  letter-spacing: 0.22em;
+  color: #8C8277;
+  margin: 0 0 1.75rem;
+  text-align: center;
 }
 
 .v2-logos-marquee {
@@ -40,53 +42,79 @@
 
 .v2-logos-marquee::before {
   left: 0;
-  background: linear-gradient(to right, #F1ECE4, transparent);
+  background: linear-gradient(to right, #F8F5F0, transparent);
 }
 
 .v2-logos-marquee::after {
   right: 0;
-  background: linear-gradient(to left, #F1ECE4, transparent);
+  background: linear-gradient(to left, #F8F5F0, transparent);
 }
 
 .v2-logos-track {
   display: flex;
   align-items: center;
-  animation: scroll-logos 32s linear infinite;
   width: max-content;
+  animation: scroll-logos 55s linear infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+.v2-logos-marquee:hover .v2-logos-track {
+  animation-play-state: paused;
 }
 
 .v2-logos-group {
   display: flex;
-  gap: 4.5rem;
+  gap: 1.25rem;
   align-items: center;
-  padding-right: 4.5rem; /* Ensures distance to next group is exactly 1 gap */
+  flex-shrink: 0;
+  padding-right: 1.25rem;
 }
 
 .v2-logo-item {
   display: flex;
   align-items: center;
-  justify-content: center;
-  opacity: 0.85;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  gap: 0.75rem;
+  padding: 0.6rem 1.25rem;
   cursor: pointer;
-}
-
-.v2-real-logo-img {
-  width: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.04));
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  border: 1px solid rgba(26, 26, 46, 0.08);
+  background: #FFFFFF;
+  border-radius: 40px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+  text-decoration: none;
+  outline: none;
 }
 
 .v2-logo-item:hover {
-  opacity: 1;
+  border-color: rgba(212, 175, 55, 0.5);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px) scale(1.03);
 }
 
-.v2-logo-item:hover .v2-real-logo-img {
-  transform: scale(1.1);
+.v2-real-logo-img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
+
+.v2-logo-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1A1A2E;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 @keyframes scroll-logos {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
 }

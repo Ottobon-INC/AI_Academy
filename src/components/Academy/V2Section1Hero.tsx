@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import './V2Section1Hero.css';
 import V2SectionLogos from './V2SectionLogos';
 
@@ -6,198 +6,109 @@ interface V2Section1HeroProps {
   onStart: () => void;
 }
 
-const floatingTags = [
-  { text: '✦ Agentic Workflows', top: '18%', left: '12%', speed: '12s' },
-  { text: '⚡ Vector RAG', top: '22%', right: '14%', speed: '15s' },
-  { text: '🧠 Model Fine-Tuning', top: '58%', left: '10%', speed: '14s' },
-  { text: '🚀 Production MLOps', top: '62%', right: '12%', speed: '16s' },
-  { text: '⚙️ Scalable AI APIs', top: '38%', right: '8%', speed: '13s' },
-  { text: '🎯 AI Strategy & PM', top: '42%', left: '8%', speed: '17s' },
-];
-
 const V2Section1Hero: React.FC<V2Section1HeroProps> = ({ onStart }) => {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    let animationFrameId: number;
-    let width = (canvas.width = canvas.parentElement?.clientWidth || window.innerWidth);
-    let height = (canvas.height = canvas.parentElement?.clientHeight || window.innerHeight);
-
-    const handleResize = () => {
-      if (!canvas) return;
-      width = canvas.width = canvas.parentElement?.clientWidth || window.innerWidth;
-      height = canvas.height = canvas.parentElement?.clientHeight || window.innerHeight;
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    // 3D Sine Wave Topology Mesh Parameters
-    let step = 0;
-    const rows = 28;
-    const cols = 45;
-
-    const draw = () => {
-      ctx.clearRect(0, 0, width, height);
-      step += 0.015;
-
-      const gridWidth = width * 1.2;
-      const gridHeight = height * 0.7;
-      const startX = (width - gridWidth) / 2;
-      const startY = height * 0.35;
-
-      const cellW = gridWidth / cols;
-      const cellH = gridHeight / rows;
-
-      // Draw horizontal 3D wave lines
-      for (let r = 0; r < rows; r++) {
-        ctx.beginPath();
-        const yOffset = startY + r * cellH;
-
-        for (let c = 0; c <= cols; c++) {
-          const x = startX + c * cellW;
-          // Math sine wave formula creating organic fluid 3D terrain
-          const wave1 = Math.sin(c * 0.18 + step + r * 0.1) * 18;
-          const wave2 = Math.cos(r * 0.25 - step * 0.8) * 12;
-          const zY = yOffset + wave1 + wave2;
-
-          if (c === 0) {
-            ctx.moveTo(x, zY);
-          } else {
-            ctx.lineTo(x, zY);
-          }
-        }
-
-        // Perspective fading: closer to top = fainter, closer to center = glowing gold
-        const alpha = Math.min(0.22, Math.max(0.03, (r / rows) * 0.25));
-        ctx.strokeStyle = `rgba(201, 168, 76, ${alpha})`;
-        ctx.lineWidth = 1.2;
-        ctx.stroke();
-      }
-
-      // Draw vertical 3D wave lines
-      for (let c = 0; c <= cols; c += 2) {
-        ctx.beginPath();
-        const x = startX + c * cellW;
-
-        for (let r = 0; r < rows; r++) {
-          const yOffset = startY + r * cellH;
-          const wave1 = Math.sin(c * 0.18 + step + r * 0.1) * 18;
-          const wave2 = Math.cos(r * 0.25 - step * 0.8) * 12;
-          const zY = yOffset + wave1 + wave2;
-
-          if (r === 0) {
-            ctx.moveTo(x, zY);
-          } else {
-            ctx.lineTo(x, zY);
-          }
-        }
-
-        const alpha = Math.min(0.18, Math.max(0.02, (c / cols) * 0.2));
-        ctx.strokeStyle = `rgba(201, 168, 76, ${alpha})`;
-        ctx.lineWidth = 1;
-        ctx.stroke();
-      }
-
-      // Glowing intersection nodes on peak waves
-      for (let r = 4; r < rows; r += 4) {
-        for (let c = 4; c < cols; c += 5) {
-          const x = startX + c * cellW;
-          const yOffset = startY + r * cellH;
-          const wave1 = Math.sin(c * 0.18 + step + r * 0.1) * 18;
-          const wave2 = Math.cos(r * 0.25 - step * 0.8) * 12;
-          const zY = yOffset + wave1 + wave2;
-
-          ctx.beginPath();
-          ctx.arc(x, zY, 2, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(201, 168, 76, 0.5)';
-          ctx.fill();
-        }
-      }
-
-      animationFrameId = requestAnimationFrame(draw);
-    };
-
-    draw();
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, []);
+  const scrollToTracks = () => {
+    const tracksSection = document.getElementById('ai-tracks');
+    if (tracksSection) {
+      const offset = 80;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = tracksSection.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   return (
     <section className="v2-hero-section">
-      
-      {/* 3D SINE WAVE TOPOLOGY CANVAS */}
-      <canvas ref={canvasRef} className="v2-hero-3d-canvas" />
-
-      {/* AMBIENT GLOW LIGHT BEAMS */}
-      <div className="v2-hero-bg-anim">
-        <div className="v2-bg-orb orb-gold-hero" />
-        <div className="v2-bg-orb orb-navy-hero" />
-        <div className="v2-bg-core-halo" />
+      {/* AMBIENT LUXURY GLOW */}
+      <div className="v2-hero-ambient-glow">
+        <div className="v2-glow-spot v2-glow-gold" />
+        <div className="v2-glow-spot v2-glow-cream" />
       </div>
 
-      {/* FLOATING HOLOGRAPHIC SKILL BADGES */}
-      <div className="v2-hero-floating-tags">
-        {floatingTags.map((tag, idx) => (
-          <div
-            key={idx}
-            className="v2-floating-skill-pill"
-            style={{
-              top: tag.top,
-              left: tag.left,
-              right: tag.right,
-              animationDuration: tag.speed,
-            }}
-          >
-            {tag.text}
+      <div className="v2-hero-container max-w-[1240px] mx-auto px-6 pt-24 pb-12">
+        {/* TOP HERO CONTENT */}
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#C9A84C]/10 text-[#C9A84C] border border-[#C9A84C]/25 mb-4 shadow-sm">
+            <span>✦</span>
+            <span>Adaptive AI Career Gateway</span>
           </div>
-        ))}
+
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-[#1A1A2E] tracking-tight font-heading leading-tight mb-5">
+            Step Into Your High-Paying <br className="hidden sm:inline" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C9A84C] via-[#B38F36] to-[#997321]">
+              AI Career.
+            </span>
+          </h1>
+
+          <p className="text-base sm:text-lg text-slate-600 font-medium max-w-2xl mx-auto leading-relaxed mb-8">
+            Our adaptive diagnostic skips what you already know and maps your direct path into real-world AI roles — with zero fluff.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+            <button 
+              className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[#1A1A2E] text-white font-bold text-base hover:bg-[#C9A84C] hover:text-[#1A1A2E] transition-all duration-300 shadow-lg shadow-[#1A1A2E]/15 hover:-translate-y-0.5"
+              onClick={onStart}
+            >
+              Find Your AI Career Path →
+            </button>
+            <button 
+              className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-white text-[#1A1A2E] font-bold text-base border border-slate-200 hover:border-[#C9A84C] hover:bg-slate-50 transition-all duration-300 shadow-sm"
+              onClick={scrollToTracks}
+            >
+              Explore 3 Specialization Tracks 🔍
+            </button>
+          </div>
+
+          {/* PROOF STATS STRIP */}
+          <div className="flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm font-bold text-[#1A1A2E] border-y border-slate-300/80 py-3.5">
+            <div className="flex items-center gap-1.5">
+              <span className="text-amber-500">⭐</span>
+              <span className="text-[#1A1A2E] font-bold">4.8/5 Rated Program</span>
+            </div>
+            <span className="text-slate-400 hidden sm:inline">•</span>
+            <div className="flex items-center gap-1.5">
+              <span className="text-amber-500">🎓</span>
+              <span className="text-[#1A1A2E] font-bold">5,000+ Career Transitions</span>
+            </div>
+            <span className="text-slate-400 hidden sm:inline">•</span>
+            <div className="flex items-center gap-1.5">
+              <span className="text-amber-500">💼</span>
+              <span className="text-[#1A1A2E] font-bold">85% Landed AI Roles</span>
+            </div>
+          </div>
+        </div>
+
+        {/* ELEGANT EXECUTIVE GATEWAY BANNER CARD */}
+        <div className="relative w-full rounded-2xl p-6 sm:p-8 border border-[#C9A84C]/40 bg-gradient-to-r from-[#141426] via-[#1E1E36] to-[#141426] shadow-2xl text-white mb-8 overflow-hidden">
+          <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 rounded-full bg-[#C9A84C]/15 blur-3xl pointer-events-none" />
+          <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div className="text-left">
+              <span className="text-xs font-extrabold uppercase tracking-wider block mb-1.5" style={{ color: '#F3C64F' }}>
+                ✦ 3 Outcome-Driven AI Specializations
+              </span>
+              <h3 className="text-xl sm:text-2xl font-extrabold font-heading mb-1" style={{ color: '#FFFFFF' }}>
+                Native AI Expert • Vibe Coding Developer • Agent Builder
+              </h3>
+              <p className="text-xs sm:text-sm mt-1 max-w-xl font-medium" style={{ color: '#E2DCD2' }}>
+                Average salary ranges from $130,000 to $220,000 / yr across premier AI employers.
+              </p>
+            </div>
+            <button 
+              onClick={onStart}
+              className="px-6 py-3.5 rounded-xl bg-[#C9A84C] text-[#1A1A2E] font-bold text-sm whitespace-nowrap hover:bg-white transition-all shadow-lg shadow-[#C9A84C]/20 hover:-translate-y-0.5 shrink-0"
+            >
+              Start Free Assessment →
+            </button>
+          </div>
+        </div>
       </div>
 
-      {/* HERO MAIN CONTENT */}
-      <div className="v2-hero-content-center">
-        <div className="v2-hero-badge">
-          <span className="v2-badge-spark">✦</span>
-          <span>Adaptive AI Career Academy</span>
-        </div>
-
-        <h1 className="v2-hero-headline">
-          Start Your AI Career <span className="v2-headline-gold">Here.</span>
-        </h1>
-        
-        <p className="v2-hero-subheading">
-          Whether you're learning AI for the first time, leveling up your skills, or specializing deeper—we show you the exact path forward.
-        </p>
-
-        <div className="v2-hero-action">
-          <button className="v2-hero-cta" onClick={onStart}>
-            Find Your Path →
-          </button>
-        </div>
-
-        <div className="v2-hero-stats">
-          <div className="v2-hero-stat">
-            <span className="stat-icon">⭐</span>
-            <span className="stat-text">4.8/5 Rating</span>
-          </div>
-          <div className="v2-hero-stat">
-            <span className="stat-icon">🎓</span>
-            <span className="stat-text">5,000+ Graduates</span>
-          </div>
-          <div className="v2-hero-stat">
-            <span className="stat-icon">💼</span>
-            <span className="stat-text">85% Land AI Roles</span>
-          </div>
-        </div>
-      </div>
-
+      {/* MOVING LOGO BANNER */}
       <V2SectionLogos />
     </section>
   );

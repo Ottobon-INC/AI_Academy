@@ -1,30 +1,52 @@
 import React, { useState } from 'react';
 import './V2Section8FAQ.css';
 
-const faqs = [
+interface FAQItem {
+  q: string;
+  a: string;
+  category?: string;
+}
+
+const faqs: FAQItem[] = [
   {
-    q: 'Do I need a technical background to join?',
-    a: 'Not at all. Our assessment identifies your starting point and builds a personalised path. Non-technical students follow an AI strategy and no-code tools track. Technical students go straight into agents, fine-tuning, and ML engineering.',
+    category: 'Program Overview',
+    q: 'What is Ottobon AI Academy and who is this program for?',
+    a: 'Ottobon AI Academy is an intensive 12-week program specifically structured to help QA Engineers, Software Testers, and Developers transition into high-paying AI Engineering roles. You will learn to build production-grade AI agents, LLM applications, and RAG systems with 1-on-1 expert mentorship.',
   },
   {
-    q: 'How much time do I need each week?',
-    a: 'Most students spend 5–10 hours a week and complete their track in 4–6 months. Everything is self-paced so you can go faster or slower depending on your schedule.',
+    category: 'Program Overview',
+    q: 'What exactly do I get when I enroll in the program?',
+    a: 'You get full access to our 12-week AI Engineering curriculum, weekly 1-on-1 live mentorship sessions with a Senior AI Engineer, 5+ production-grade portfolio projects for your GitHub, AI resume overhaul, mock technical interview prep, and direct referrals through our hiring partner network.',
   },
   {
-    q: 'Is this just about ChatGPT and prompt engineering?',
-    a: 'Absolutely not. While we cover prompting, you will build autonomous AI agents, RAG pipelines, fine-tuned LLMs, and full AI-powered applications using the exact tools companies are hiring for — LangChain, Hugging Face, LlamaIndex, Pinecone, and more.',
+    category: 'Mentorship & Learning',
+    q: 'How does the 1-on-1 mentorship work?',
+    a: 'Every student is paired with a practicing Senior AI Engineer. You get weekly live 1-on-1 sessions via Microsoft Teams/Google Meet to review your code, debug complex AI architectures, get direct feedback on your portfolio projects, and receive personalized career guidance.',
   },
   {
-    q: 'Will this actually get me a job in AI?',
-    a: '85% of our graduates land an AI role within 6 months. We do not just hand you a certificate. You leave with 5+ real portfolio projects, a polished resume, mock interview prep, and direct referrals into our 300+ hiring partner network.',
+    category: 'Prerequisites & Eligibility',
+    q: 'Do I need prior AI, Machine Learning, or a CS degree to join?',
+    a: 'No prior AI/ML experience or advanced math degree is required. If you have a background in QA testing, software automation, or basic programming (Python/JavaScript), our curriculum bridges the gap to Applied AI Engineering — focusing on building, evaluating, and deploying real AI applications.',
   },
   {
-    q: 'I am already a developer — is this too basic for me?',
-    a: 'We have a dedicated advanced track. You will skip fundamentals and dive straight into fine-tuning open-source models (LLaMA, Mistral), building multi-agent systems, optimising for production inference, and architecting enterprise AI systems.',
+    category: 'Time & Schedule',
+    q: 'How much time do I need to commit each week?',
+    a: 'The program requires approximately 8–12 hours per week. It is built specifically for working professionals, featuring flexible study hours, structured asynchronous modules, and scheduled 1-on-1 live mentoring sessions.',
   },
   {
-    q: 'What makes this different from a Udemy or Coursera course?',
-    a: 'Generic courses give you videos. We give you a personalised roadmap, hands-on projects, a community, career coaches, and direct access to hiring partners. The difference is whether you watch AI or build it.',
+    category: 'Curriculum & Tech Stack',
+    q: 'What tech stack and tools will I master in 12 weeks?',
+    a: 'You will master Python, OpenAI API, Anthropic Claude API, LangChain, LlamaIndex, Vector Databases (Pinecone, ChromaDB), Open-Source LLM Fine-Tuning (LLaMA 3, Mistral via Hugging Face/Ollama), FastAPI, Docker, and AI System Evaluation frameworks.',
+  },
+  {
+    category: 'Portfolio & Projects',
+    q: 'What real-world projects will I build for my portfolio?',
+    a: 'You will build 5+ production-grade projects: an Enterprise RAG Knowledge Base, Autonomous Multi-Agent Workflows, a Fine-Tuned Domain-Specific LLM, an AI Test & Evaluation Suite, and a Full-Stack AI Microservice deployed to cloud.',
+  },
+  {
+    category: 'Career & Support',
+    q: 'How does career transition and job search support work?',
+    a: 'Starting from week 8, our career team works directly with you to rewrite your resume and LinkedIn for AI roles, train you for AI technical & system design interviews, and connect you with recruiters across tech companies hiring AI talent.',
   },
 ];
 
@@ -41,9 +63,9 @@ const V2Section8FAQ: React.FC = () => {
 
       <div className="v2-faq-container">
         <div className="v2-faq-header">
-          <p className="v2-faq-eyebrow">FAQ</p>
-          <h2 className="v2-faq-headline">Got Questions? We've Got Answers.</h2>
-          <p className="v2-faq-subtitle">Everything you need to know before you start.</p>
+          <p className="v2-faq-eyebrow">FREQUENTLY ASKED QUESTIONS</p>
+          <h2 className="v2-faq-headline">Everything You Need to Know</h2>
+          <p className="v2-faq-subtitle">Clear answers about our 12-week program, 1-on-1 mentorship, and AI career transition.</p>
         </div>
 
         <div className="v2-faq-list">

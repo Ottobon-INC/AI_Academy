@@ -1,5 +1,5 @@
 import React from 'react';
-import './AssessmentLanding.css'; // Keep base styles if any, or remove if unneeded
+import './AssessmentLanding.css';
 
 // Import V2 Sections
 import V2SectionNavbar from './V2SectionNavbar';
@@ -12,6 +12,7 @@ import V2Section7Proof from './V2Section7Proof';
 import V2Section8FAQ from './V2Section8FAQ';
 import V2Section9Push from './V2Section9Push';
 import V2Section10Footer from './V2Section10Footer';
+import { TrackSelection } from './TrackSelection';
 
 interface AssessmentLandingProps {
   onStart: () => void;
@@ -22,6 +23,12 @@ const AssessmentLanding: React.FC<AssessmentLandingProps> = ({ onStart }) => {
     <div className="landing-page v2-landing">
       <V2SectionNavbar onStart={onStart} />
       <V2Section1Hero onStart={onStart} />
+
+      {/* 3 Core AI Specialization Tracks Section */}
+      <section id="ai-tracks" className="py-6 bg-slate-50/50 border-y border-slate-200/60">
+        <TrackSelection tracks={[]} onSelectTrack={() => {}} />
+      </section>
+
       <V2Section2Who />
       <V2Section4How />
       <V2Section5What />

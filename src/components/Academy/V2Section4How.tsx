@@ -5,20 +5,20 @@ const steps = [
   {
     number: '01',
     icon: '🧭',
-    title: 'Get Your AI Roadmap',
-    desc: 'A 5-minute assessment maps your skills to a personalised AI learning path built just for you.',
+    title: 'Profile Diagnostic',
+    desc: 'A 3-minute assessment maps your background and identifies your exact skill gap to your target track.',
   },
   {
     number: '02',
     icon: '🛠️',
-    title: 'Build Real AI Projects',
-    desc: 'Build agents, RAG pipelines, and fine-tuned models. Hands-on from day one — no fluff.',
+    title: 'Hands-On Specialization',
+    desc: 'Build real-world projects — native enterprise configs, vibe-coded full-stack apps, or custom AI agents.',
   },
   {
     number: '03',
     icon: '🎯',
-    title: 'Get Hired in AI',
-    desc: 'Portfolio prep, interview coaching, and direct links to companies actively hiring AI talent.',
+    title: '1-on-1 Career & Hiring',
+    desc: 'Refine your portfolio, undergo 1-on-1 counseling, and connect with companies actively hiring AI talent.',
   },
 ];
 

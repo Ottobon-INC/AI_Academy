@@ -1,114 +1,105 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './V2SectionLogos.css';
 
-interface RealLogo {
+interface Company {
   name: string;
-  url: string;
-  height?: number;
+  slug: string;
+  color: string;
+  domain: string;
 }
 
-const realLogos: RealLogo[] = [
-  {
-    name: 'Google',
-    url: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg',
-    height: 28,
-  },
-  {
-    name: 'OpenAI',
-    url: 'https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg',
-    height: 28,
-  },
-  {
-    name: 'Microsoft',
-    url: 'https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg',
-    height: 26,
-  },
-  {
-    name: 'Meta',
-    url: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg',
-    height: 24,
-  },
-  {
-    name: 'Amazon',
-    url: 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg',
-    height: 26,
-  },
-  {
-    name: 'Netflix',
-    url: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg',
-    height: 24,
-  },
-  {
-    name: 'Apple',
-    url: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg',
-    height: 28,
-  },
-  {
-    name: 'NVIDIA',
-    url: 'https://upload.wikimedia.org/wikipedia/commons/2/21/Nvidia_logo.svg',
-    height: 26,
-  },
-  {
-    name: 'Tesla',
-    url: 'https://upload.wikimedia.org/wikipedia/commons/b/bd/Tesla_Motors.svg',
-    height: 24,
-  },
-  {
-    name: 'IBM',
-    url: 'https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg',
-    height: 24,
-  },
-  {
-    name: 'Anthropic',
-    url: 'https://upload.wikimedia.org/wikipedia/commons/7/78/Anthropic_logo.svg',
-    height: 22,
-  },
-  {
-    name: 'Cohere',
-    url: 'https://upload.wikimedia.org/wikipedia/commons/5/58/Cohere_logo.svg',
-    height: 24,
-  },
+const companies: Company[] = [
+  { name: 'Google', slug: 'google', color: '4285F4', domain: 'google.com' },
+  { name: 'OpenAI', slug: 'openai', color: '10A37F', domain: 'openai.com' },
+  { name: 'Microsoft', slug: 'microsoft', color: '00A4EF', domain: 'microsoft.com' },
+  { name: 'Meta', slug: 'meta', color: '0467DF', domain: 'meta.com' },
+  { name: 'NVIDIA', slug: 'nvidia', color: '76B900', domain: 'nvidia.com' },
+  { name: 'Anthropic', slug: 'anthropic', color: 'D97757', domain: 'anthropic.com' },
+  { name: 'Salesforce', slug: 'salesforce', color: '00A1E0', domain: 'salesforce.com' },
+  { name: 'Amazon', slug: 'amazon', color: 'FF9900', domain: 'amazon.com' },
+  { name: 'Apple', slug: 'apple', color: '000000', domain: 'apple.com' },
+  { name: 'Tesla', slug: 'tesla', color: 'E82127', domain: 'tesla.com' },
+  { name: 'Adobe', slug: 'adobe', color: 'FF0000', domain: 'adobe.com' },
+  { name: 'Netflix', slug: 'netflix', color: 'E50914', domain: 'netflix.com' },
+  { name: 'Uber', slug: 'uber', color: '000000', domain: 'uber.com' },
+  { name: 'Oracle', slug: 'oracle', color: 'F80000', domain: 'oracle.com' },
+  { name: 'SAP', slug: 'sap', color: '008FD3', domain: 'sap.com' },
+  { name: 'Snowflake', slug: 'snowflake', color: '29B5E8', domain: 'snowflake.com' },
+  { name: 'Databricks', slug: 'databricks', color: 'FF3621', domain: 'databricks.com' },
+  { name: 'Intel', slug: 'intel', color: '0068B5', domain: 'intel.com' },
+  { name: 'AMD', slug: 'amd', color: 'ED1C24', domain: 'amd.com' },
+  { name: 'IBM', slug: 'ibm', color: '054ADA', domain: 'ibm.com' },
+  { name: 'Palantir', slug: 'palantir', color: '101010', domain: 'palantir.com' },
+  { name: 'Vercel', slug: 'vercel', color: '000000', domain: 'vercel.com' },
+  { name: 'Stripe', slug: 'stripe', color: '635BFF', domain: 'stripe.com' },
 ];
 
+interface LogoImageProps {
+  company: Company;
+}
+
+const LogoImage: React.FC<LogoImageProps> = ({ company }) => {
+  const [srcIndex, setSrcIndex] = useState(0);
+
+  // Reliable vector SVG CDN sources for official company logos
+  const sources = [
+    `https://cdn.simpleicons.org/${company.slug}/${company.color}`,
+    `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${company.slug}/${company.slug}-original.svg`,
+    `https://logo.clearbit.com/${company.domain}`,
+    `https://www.google.com/s2/favicons?domain=${company.domain}&sz=128`,
+  ];
+
+  if (srcIndex >= sources.length) {
+    return null;
+  }
+
+  return (
+    <img
+      src={sources[srcIndex]}
+      alt={`${company.name} logo`}
+      className="v2-real-logo-img"
+      width={28}
+      height={28}
+      onError={() => setSrcIndex((i) => i + 1)}
+    />
+  );
+};
+
 const V2SectionLogos: React.FC = () => {
+  const handleLogoClick = (company: Company) => {
+    const query = encodeURIComponent(`${company.name} AI engineering jobs`);
+    window.open(`https://www.google.com/search?q=${query}`, '_blank', 'noopener,noreferrer');
+  };
+
+  const renderGroup = (groupId: number, hidden = false) => (
+    <div
+      key={`group-${groupId}`}
+      className="v2-logos-group"
+      aria-hidden={hidden ? 'true' : undefined}
+    >
+      {companies.map((company, idx) => (
+        <button
+          key={`${groupId}-${idx}`}
+          className="v2-logo-item"
+          title={`Explore ${company.name} AI Careers`}
+          onClick={() => handleLogoClick(company)}
+        >
+          <LogoImage company={company} />
+          <span className="v2-logo-label">{company.name}</span>
+        </button>
+      ))}
+    </div>
+  );
+
   return (
     <section className="v2-logos-section">
-      <div className="v2-logos-header">COMPANIES HIRING FOR AI ROLES</div>
+      <p className="v2-logos-header">
+        TOP TECH COMPANIES HIRING AI ENGINEERS (CLICK TO EXPLORE JOBS)
+      </p>
       <div className="v2-logos-marquee">
         <div className="v2-logos-track">
-          {/* Group 1 */}
-          <div className="v2-logos-group">
-            {realLogos.map((item, index) => (
-              <div key={`logo-1-${index}`} className="v2-logo-item" title={item.name}>
-                <img
-                  src={item.url}
-                  alt={`${item.name} Official Logo`}
-                  className="v2-real-logo-img"
-                  style={{ height: `${item.height || 26}px` }}
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = `https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/${item.name.toLowerCase()}.svg`;
-                  }}
-                />
-              </div>
-            ))}
-          </div>
-
-          {/* Group 2 */}
-          <div className="v2-logos-group" aria-hidden="true">
-            {realLogos.map((item, index) => (
-              <div key={`logo-2-${index}`} className="v2-logo-item" title={item.name}>
-                <img
-                  src={item.url}
-                  alt={`${item.name} Official Logo`}
-                  className="v2-real-logo-img"
-                  style={{ height: `${item.height || 26}px` }}
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = `https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/${item.name.toLowerCase()}.svg`;
-                  }}
-                />
-              </div>
-            ))}
-          </div>
+          {renderGroup(1)}
+          {renderGroup(2, true)}
         </div>
       </div>
     </section>

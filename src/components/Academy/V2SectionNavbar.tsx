@@ -40,7 +40,8 @@ const V2SectionNavbar: React.FC<V2SectionNavbarProps> = ({ onStart }) => {
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }}
       >
-        AI Academy
+        <img src="/ottobon-logo.png" alt="Ottobon AI Logo" className="v2-nav-logo-img" />
+        <span>AI Academy</span>
       </a>
       
       <div className="v2-nav-links">
